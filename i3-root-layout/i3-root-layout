@@ -25,6 +25,13 @@ i3-msg -t get_tree \
   | cut -d"\"" -f2
 )
 
+# echo "'${layout}'"
+
+if [ "${layout}" = "null" ]
+then
+  layout="none"
+fi
+
 case $layout in 
   "splith" | "splitv")
     color="green"
@@ -34,6 +41,9 @@ case $layout in
     ;;
   "tabbed")
     color="yellow"
+    ;;
+  "none")
+    color="blue"
     ;;
   *)
     color="FF0000"
